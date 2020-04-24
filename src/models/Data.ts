@@ -7,12 +7,27 @@ class Data {
   id: string;
 
   @Column()
-  acc: number[];
+  acc1: number;
 
   @Column()
-  gyro: number[];
+  acc2: number;
+
+  @Column()
+  acc3: number;
+
+  @Column()
+  gyro1: number;
+
+  @Column()
+  gyro2: number;
+
+  @Column()
+  gyro3: number;
 
   @Column()
   countSteps: number;
+
+  @Column()
+  date: Date;
 }
 export default Data;
