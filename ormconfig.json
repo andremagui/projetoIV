@@ -1,11 +1,11 @@
 {
-  "type": "postgres",
+  "type": "mysql",
   "host": "localhost",
-  "port": 5432,
-  "username": "postgres",
-  "password": "projeto",
-  "database": "database",
-  "synchronize": true,
+  "port": 3306,
+  "username": "root",
+  "password": "root",
+  "database": "projetoiv",
+  "synchronize": false,
   "logging": false,
   "entities": [
     "./src/models/*.ts"
@@ -16,4 +16,4 @@
   "cli": {
     "migrationsDir": "./src/database/migrations"
   }
- }
+}

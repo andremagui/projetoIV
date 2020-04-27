@@ -3,31 +3,31 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('data')
 class Data {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn("increment", { type: "bigint" })
+  id: number;
 
-  @Column()
+  @Column("float")
   acc1: number;
 
-  @Column()
+  @Column("float")
   acc2: number;
 
-  @Column()
+  @Column("float")
   acc3: number;
 
-  @Column()
+  @Column("float")
   gyro1: number;
 
-  @Column()
+  @Column("float")
   gyro2: number;
 
-  @Column()
+  @Column("float")
   gyro3: number;
 
-  @Column()
+  @Column("int")
   countSteps: number;
 
-  @Column()
+  @Column("datetime")
   date: Date;
 }
 export default Data;
