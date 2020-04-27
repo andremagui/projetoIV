@@ -2,6 +2,7 @@ import { getCustomRepository } from 'typeorm';
 import { Router } from 'express';
 
 import CreateDataService from '../services/CreateDataService';
+import { RequestDTO } from '../services/CreateDataService';
 import DataRepository from '../repositories/DataRepository';
 
 const dataRouter = Router();
@@ -15,33 +16,28 @@ dataRouter.get('/', async (req, res) => {
 
 dataRouter.post('/', async (req, res) => {
   try {
-    const {
-      acc1,
-      acc2,
-      acc3,
-      gyro1,
-      gyro2,
-      gyro3,
-      countSteps,
-      date,
-    } = req.body;
+    const dados = req.body as any[][];
 
     const createData = new CreateDataService();
 
-    const data = await createData.execute({
-      acc1,
-      acc2,
-      acc3,
-      gyro1,
-      gyro2,
-      gyro3,
-      countSteps,
-      date,
-    });
+    const p = new RequestDTO();
 
-    return res.json(data);
+    for (let i = 0; i < dados.length; i++) {
+      const dado = dados[i];
+      p.acc1 = dado[0];
+      p.acc2 = dado[1];
+      p.acc3 = dado[2];
+      p.gyro1 = dado[3];
+      p.gyro2 = dado[4];
+      p.gyro3 = dado[5];
+      p.countSteps = dado[6];
+      p.date = dado[7];
+      await createData.execute(p);
+    }
+
+    res.status(204);
   } catch (err) {
-    return res.status(400).json({ error: err.message });
+    res.status(400).json({ error: err.message });
   }
 });
 
