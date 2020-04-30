@@ -4,12 +4,19 @@ import DataRepository from '../repositories/DataRepository';
 
 export class RequestDTO {
   acc1: number;
+
   acc2: number;
+
   acc3: number;
+
   gyro1: number;
+
   gyro2: number;
+
   gyro3: number;
+
   countSteps: number;
+
   date: Date;
 }
 

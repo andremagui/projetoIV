@@ -23,6 +23,10 @@
         "prettier"
     ],
     "rules": {
+      "prefer-destructuring":"warn",
+      "no-await-in-loop":"off",
+      "no-plusplus":"off",
+      "max-classes-per-file": ["error", 2],
       "prettier/prettier": "error",
       "class-methods-use-this": "off",
       "import/extensions": [

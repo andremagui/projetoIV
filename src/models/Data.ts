@@ -1,33 +1,38 @@
 // import { uuid } from 'uuidv4';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+} from 'typeorm';
 
 @Entity('data')
 class Data {
-  @PrimaryGeneratedColumn("increment", { type: "bigint" })
+  @PrimaryGeneratedColumn('increment', { type: 'bigint' })
   id: number;
 
-  @Column("float")
+  @Column('float')
   acc1: number;
 
-  @Column("float")
+  @Column('float')
   acc2: number;
 
-  @Column("float")
+  @Column('float')
   acc3: number;
 
-  @Column("float")
+  @Column('float')
   gyro1: number;
 
-  @Column("float")
+  @Column('float')
   gyro2: number;
 
-  @Column("float")
+  @Column('float')
   gyro3: number;
 
-  @Column("int")
+  @Column('int')
   countSteps: number;
 
-  @Column("datetime")
-  date: Date;
+  @CreateDateColumn()
+  createdAt: Date;
 }
 export default Data;

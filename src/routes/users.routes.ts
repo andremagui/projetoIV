@@ -1,8 +1,8 @@
 import { getCustomRepository } from 'typeorm';
 import { Router } from 'express';
 
-import CreateDataService from '../services/CreateDataService';
-import { RequestDTO } from '../services/CreateDataService';
+import CreateDataService, { RequestDTO } from '../services/CreateDataService';
+
 import DataRepository from '../repositories/DataRepository';
 
 const dataRouter = Router();
